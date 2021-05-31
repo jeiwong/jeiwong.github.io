@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Jun Wei, Launches Site"
 date: 2021-04-19
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Jun Wei, secondo post"
 date: 2021-04-19
 ---
