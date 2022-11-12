@@ -1,0 +1,8 @@
+name: Wong Jun Wei
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
+defaults:
+  - scope:
+      path: "_posts" # an empty string here means all files in the project
+    values:
+      layout: "post"
