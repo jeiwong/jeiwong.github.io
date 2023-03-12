@@ -23,16 +23,16 @@ const HeaderButtons = ({
 }: ButtonGroupProps) => {
   return (
     <Button.Group orientation={orientation} className={className}>
-      <Button variant={"subtle"}>
-        <Text size={16}>Works</Text>
+      <Button variant={"subtle"} data-testid="work">
+        <Text size={16}>Work</Text>
       </Button>
-      <Button variant={"subtle"}>
+      <Button variant={"subtle"} data-testid="projects">
         <Text size={16}>Projects</Text>
       </Button>
-      <Button variant={"subtle"}>
+      <Button variant={"subtle"} data-testid="about">
         <Text size={16}>About</Text>
       </Button>
-      <Button variant={"subtle"}>
+      <Button variant={"subtle"} data-testid="contact">
         <Text size={16}>Contact</Text>
       </Button>
     </Button.Group>
