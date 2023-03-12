@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { ReactNode } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -23,16 +24,31 @@ const HeaderButtons = ({
 }: ButtonGroupProps) => {
   return (
     <Button.Group orientation={orientation} className={className}>
-      <Button variant={"subtle"} data-testid="work">
+      <Button variant={"subtle"} data-testid="work" component={Link} to="/work">
         <Text size={16}>Work</Text>
       </Button>
-      <Button variant={"subtle"} data-testid="projects">
+      <Button
+        variant={"subtle"}
+        data-testid="projects"
+        component={Link}
+        to="/projects"
+      >
         <Text size={16}>Projects</Text>
       </Button>
-      <Button variant={"subtle"} data-testid="about">
+      <Button
+        variant={"subtle"}
+        data-testid="about"
+        component={Link}
+        to="/about"
+      >
         <Text size={16}>About</Text>
       </Button>
-      <Button variant={"subtle"} data-testid="contact">
+      <Button
+        variant={"subtle"}
+        data-testid="contact"
+        component={Link}
+        to="/contact"
+      >
         <Text size={16}>Contact</Text>
       </Button>
     </Button.Group>
@@ -63,7 +79,7 @@ const CustomHeader = () => {
   return (
     <Header height={{ base: 70, md: 70 }} p="md">
       <Group position="apart">
-        <Button variant={"white"}>
+        <Button variant={"white"} component={Link} to="/">
           <Text size={30}>JunWei</Text>
         </Button>
         <MediaQuery largerThan="sm" styles={{ display: "none" }}>
@@ -77,8 +93,12 @@ const CustomHeader = () => {
   );
 };
 
-const PageLayout = ({ children }: PageLayoutProps) => {
-  return <AppShell header={<CustomHeader />}>{children}</AppShell>;
+const PageLayout = () => {
+  return (
+    <AppShell header={<CustomHeader />}>
+      <Outlet />
+    </AppShell>
+  );
 };
 
 export default PageLayout;
