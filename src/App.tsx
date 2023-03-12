@@ -1,9 +1,10 @@
-import { MantineProvider, Text } from '@mantine/core';
+import { Text } from "@mantine/core";
+import PageLayout from "./components/PageLayout";
 
 export default function App() {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <PageLayout>
       <Text>Welcome to Mantine!</Text>
-    </MantineProvider>
+    </PageLayout>
   );
 }
