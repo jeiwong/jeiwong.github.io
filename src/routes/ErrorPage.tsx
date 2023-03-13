@@ -1,16 +1,16 @@
-import { useRouteError } from "react-router-dom";
+// import { useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
-  const error = useRouteError() as { message: string; statusText: string };
-  console.error(error);
+  // const error = useRouteError() as { message: string; statusText: string };
+  // console.error(error);
 
   return (
     <div id="error-page">
       <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
+      <p>Sorry, an unexpected error has occurred and there is no match.</p>
+      {/* <p>
         <i>{error.statusText || error.message}</i>
-      </p>
+      </p> */}
     </div>
   );
 };

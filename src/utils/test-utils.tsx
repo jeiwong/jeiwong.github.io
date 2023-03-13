@@ -1,7 +1,7 @@
 /* eslint-disable import/export */
 import { cleanup, render } from "@testing-library/react";
 import { afterEach } from "vitest";
-
+import { BrowserRouter } from "react-router-dom";
 afterEach(() => {
   cleanup();
 });
@@ -9,7 +9,7 @@ afterEach(() => {
 const customRender = (ui: React.ReactElement, options = {}) =>
   render(ui, {
     // wrap provider(s) here if needed
-    wrapper: ({ children }) => children,
+    wrapper: ({ children }) => <BrowserRouter>{children}</BrowserRouter>,
     ...options,
   });
 
