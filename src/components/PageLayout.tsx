@@ -4,6 +4,7 @@ import {
   BurgerProps,
   Button,
   ButtonGroupProps,
+  Container,
   Group,
   Header,
   MediaQuery,
@@ -11,12 +12,7 @@ import {
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { ReactNode } from "react";
 import { Link, Outlet } from "react-router-dom";
-
-interface PageLayoutProps {
-  children: ReactNode;
-}
 
 const HeaderButtons = ({
   orientation = "horizontal",
@@ -63,7 +59,6 @@ const HeaderBurger = ({ className, opened, onClick }: BurgerProps) => {
           opened={opened}
           onClick={onClick}
           size="sm"
-          mr="xl"
           className={className}
         />
       </Popover.Target>
@@ -78,17 +73,19 @@ const CustomHeader = () => {
   const [opened, { toggle }] = useDisclosure(false);
   return (
     <Header height={{ base: 70, md: 70 }} p="md">
-      <Group position="apart">
-        <Button variant={"white"} component={Link} to="/">
-          <Text size={30}>JunWei</Text>
-        </Button>
-        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-          <HeaderBurger opened={opened} onClick={toggle} />
-        </MediaQuery>
-        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-          <HeaderButtons orientation="horizontal" />
-        </MediaQuery>
-      </Group>
+      <Container>
+        <Group position="apart">
+          <Button p={0} variant={"white"} component={Link} to="/">
+            <Text size={30}>JunWei</Text>
+          </Button>
+          <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+            <HeaderBurger opened={opened} onClick={toggle} />
+          </MediaQuery>
+          <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+            <HeaderButtons orientation="horizontal" />
+          </MediaQuery>
+        </Group>
+      </Container>
     </Header>
   );
 };
@@ -96,7 +93,9 @@ const CustomHeader = () => {
 const PageLayout = () => {
   return (
     <AppShell header={<CustomHeader />}>
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </AppShell>
   );
 };
