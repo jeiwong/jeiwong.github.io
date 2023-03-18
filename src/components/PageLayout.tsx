@@ -12,13 +12,14 @@ import {
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const HeaderButtons = ({
   orientation = "horizontal",
   className,
   onClick,
 }: ButtonGroupProps) => {
+  const location = useLocation();
   const buttonArray = [
     { label: "Work", to: "work" },
     { label: "Projects", to: "projects" },
@@ -35,7 +36,7 @@ const HeaderButtons = ({
         return (
           <Button
             key={label}
-            variant="subtle"
+            variant={location.pathname.includes(to) ? "filled" : "subtle"}
             data-testid={to}
             component={Link}
             to={to}
@@ -57,7 +58,7 @@ const HeaderBurger = ({ className, opened, onClick }: BurgerProps) => {
 const CustomHeader = () => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
-    <Header height={{ base: 70, md: "auto" }} p={{ base: "md", md: 5 }}>
+    <Header height={{ base: 70, md: "auto" }} p={{ base: "md", md: 0 }}>
       <Drawer
         opened={opened}
         onClose={close}
