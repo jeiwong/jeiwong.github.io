@@ -9,7 +9,6 @@ import {
   Group,
   Header,
   MediaQuery,
-  Popover,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -58,7 +57,7 @@ const HeaderBurger = ({ className, opened, onClick }: BurgerProps) => {
 const CustomHeader = () => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
-    <Header height={{ base: 70, md: 70 }} p="md">
+    <Header height={{ base: 70, md: "auto" }} p={{ base: "md", md: 5 }}>
       <Drawer
         opened={opened}
         onClose={close}
@@ -88,7 +87,7 @@ const CustomHeader = () => {
 const PageLayout = () => {
   return (
     <AppShell header={<CustomHeader />}>
-      <Container>
+      <Container pt={{ base: 0, md: 70 }}>
         <Outlet />
       </Container>
     </AppShell>
