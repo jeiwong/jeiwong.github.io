@@ -1,5 +1,4 @@
-import { Text } from "@mantine/core";
-import { render, screen, userEvent } from "../utils/test-utils";
+import { render } from "../utils/test-utils";
 import PageLayout from "./PageLayout";
 
 describe("PageLayout", () => {
